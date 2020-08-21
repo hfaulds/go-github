@@ -70,12 +70,19 @@ type Runner struct {
 	OS     *string `json:"os,omitempty"`
 	Status *string `json:"status,omitempty"`
 	Busy   *bool   `json:"busy,omitempty"`
+	Labels []*Label `json:"labels,omitempty"`
 }
 
 // Runners represents a collection of self-hosted runners for a repository.
 type Runners struct {
 	TotalCount int       `json:"total_count"`
 	Runners    []*Runner `json:"runners"`
+}
+
+type RunnerLabel struct {
+	ID     *int64  `json:"id,omitempty"`
+	Name   *string `json:"name,omitempty"`
+	Type   *string `json:"type,omitempty"`
 }
 
 // ListRunners lists all the self-hosted runners for a repository.
