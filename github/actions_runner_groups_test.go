@@ -31,13 +31,11 @@ func TestActionsService_CreateOrganizationRunnerGroup(t *testing.T) {
 		)
 	})
 
-	name := "octo-runner-group"
-	visibility := "selected"
 	req := &CreateRunnerGroupRequest{
-		Name:                  &name,
-		Visibility:            &visibility,
-		SelectedRepositoryIDs: []string{"MDEwOlJlcG9zaXRvcnkxMjk2MjY5"},
-		Runners:               []int64{2},
+		Name:                  "octo-runner-group",
+		Visibility:            "selected",
+		SelectedRepositoryIDs: []int64{2},
+		Runners:               []int64{3},
 	}
 	runnerGroup, _, err := client.Actions.CreateOrganizationRunnerGroup(context.Background(), "o", req)
 	if err != nil {
@@ -45,6 +43,8 @@ func TestActionsService_CreateOrganizationRunnerGroup(t *testing.T) {
 	}
 
 	id := int64(2)
+	name := "octo-runner-group"
+	visibility := "selected"
 	selectedRepositoriesURL := "https://api.github.com/orgs/octo-org/actions/runner-groups/2/repositories"
 	runnersURL := "https://api.github.com/orgs/octo-org/actions/runner_groups/2/runners"
 	isDefault := false

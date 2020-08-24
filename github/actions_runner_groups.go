@@ -22,9 +22,9 @@ type RunnerGroup struct {
 }
 
 type CreateRunnerGroupRequest struct {
-	Name   *string `json:"name,omitempty"`
-	Visibility *string `json:"visibility,omitempty"`
-	SelectedRepositoryIDs []string `json:"selected_repository_ids,omitempty"`
+	Name   string `json:"name,omitempty"`
+	Visibility string `json:"visibility,omitempty"`
+	SelectedRepositoryIDs []int64 `json:"selected_repository_ids,omitempty"`
 	Runners []int64 `json:"runners"`
 }
 
